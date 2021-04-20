@@ -1,0 +1,15 @@
+#!/bin/bash
+echo 'Full system upgrade:'
+echo 'sudo pacman -Syyu && paru -Sua && checkhosts'
+
+sys_update='sudo pacman -Syyu'
+echo $sys_update
+$sys_update
+
+aur_update='paru -Sua'
+echo $aur_update
+$aur_update
+
+checkhosts='checkhosts'
+echo $checkhosts
+$checkhosts
