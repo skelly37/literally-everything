@@ -33,25 +33,59 @@ filer_new = open('temp_hostsfile', 'r')
 line_old = filer_old.readline()
 line_new = filer_new.readline()
 are_different = False
+record = 0
 
 #comparing the files
 while (line_new != '' or line_old != '') and not are_different:
+	#print basic info about the both hosts files
+	if record == 5:
+		print('\n\nLocal hosts file: ')
+		print('---------------------------------------')
+		print(line_old[2:].strip())
+		line_old = filer_old.readline()
+		print(line_old[2:].strip())
+		print('---------------------------------------')
+		print('---------------------------------------')
+		print('\nNew file:')
+		print('---------------------------------------')
+		print(line_new[2:].strip())
+		line_new = filer_new.readline()
+		print(line_new[2:].strip())
+		print('---------------------------------------\n\n')
+
 	if line_new != line_old:
 		are_different = True
 	else:
 		line_old = filer_old.readline()
 		line_new = filer_new.readline()
+		record += 1
 
-if are_different:
+	#copy old blacklist to the new file
+	if line_old == '# blacklist\n':
+		for count in range(5):
+			line_old = filer_old.readline()
+
+		filer_new.close()
+		filew_new = open('temp_hostsfile', 'a')
+		while line_old != '':
+			filew_new.write(line_old)
+			line_old = filer_old.readline()
+
+		break
+
+
+if not are_different:
 	#leave and remove the temp file
 	print('No updates for the hosts file found.')
 
 #ask the user whether they want to update the file if there is any update
-elif not are_different:
+elif are_different:
 	print('hosts file update found!')
 	password = input('Do you want to update the local hosts file? [y/n]')
 
+	#if user does not want to update, remove the temp file and exit
 	if password.lower() == 'n':
+		remove('temp_hostsfile')
 		_exit(0)
 
 	#update the hosts file
