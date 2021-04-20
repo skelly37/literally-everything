@@ -45,7 +45,6 @@ while (line_new != '' or line_old != '') and not are_different:
 		line_old = filer_old.readline()
 		print(line_old[2:].strip())
 		print('---------------------------------------')
-		print('---------------------------------------')
 		print('\nNew file:')
 		print('---------------------------------------')
 		print(line_new[2:].strip())
