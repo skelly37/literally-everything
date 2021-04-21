@@ -10,7 +10,7 @@ from os import _exit, remove
 import subprocess
 
 HDR = {'User-Agent':'Mozilla/5.0'}
-LINK = 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts'
+LINK = 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts'
 
 #get raw text file from GitHub
 request = Request(LINK, headers=HDR)
@@ -52,7 +52,7 @@ while (line_new != '' or line_old != '') and not are_different:
 		print(line_new[2:].strip())
 		print('---------------------------------------\n\n')
 
-	if line_new != line_old:
+	if line_new != line_old and record > 5:
 		are_different = True
 	else:
 		line_old = filer_old.readline()
