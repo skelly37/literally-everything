@@ -1,0 +1,8 @@
+Enter either full lines from /etc/hosts like '0.0.0.0 www-google-analytics.l.google.com'
+or just keywords like 'google' to whitelist all of the Google domains.
+Paste the links the same way there are in the /etc/hosts — no tabulating, no spacing, no commas etc.
+
+Wpisuj albo pełne linijki z /etc/hosts takie jak '0.0.0.0 www-google-analytics.l.google.com'
+albo tylko słowa kluczowe jak 'google', żeby odblokować wszystkie domeny Google.
+Wklejaj linki w takiej formie, w jakiej są w /etc/hosts — żadnej tabulacji, spacji, przecinków itp.
+
