@@ -34,8 +34,6 @@ try:
 		line = whitelist_file.readline()
 	whitelist_file.close()
 
-	print(whitelist)
-
 	filer_new = open('temp_hostsfile', 'r')
 	line = filer_new.readline()
 	temp2_file = open('temp2_hostsfile', 'w')
