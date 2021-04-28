@@ -25,34 +25,37 @@ filew.write(plaintext.get_text())
 filew.close()
 
 #checking whitelist and removing it from the temp file
-whitelist_file = open('hosts_whitelist.txt', 'r')
-whitelist = []
-line = whitelist_file.readline()
-while line != '':
-	whitelist.append(line.strip())
+try:
+	whitelist_file = open('hosts_whitelist.txt', 'r')
+	whitelist = []
 	line = whitelist_file.readline()
-whitelist_file.close()
+	while line != '':
+		whitelist.append(line.strip())
+		line = whitelist_file.readline()
+	whitelist_file.close()
 
-print(whitelist)
+	print(whitelist)
 
-filer_new = open('temp_hostsfile', 'r')
-line = filer_new.readline()
-temp2_file = open('temp2_hostsfile', 'w')
-while line != '':
-	to_skip = False
-	for count in range(len(whitelist)):
-		if whitelist[count] in line:
-			to_skip = True
-			break
-
-	if not to_skip:
-		temp2_file.write(line)
-
+	filer_new = open('temp_hostsfile', 'r')
 	line = filer_new.readline()
+	temp2_file = open('temp2_hostsfile', 'w')
+	while line != '':
+		to_skip = False
+		for count in range(len(whitelist)):
+			if whitelist[count] in line:
+				to_skip = True
+				break
 
-filer_new.close()
+		if not to_skip:
+			temp2_file.write(line)
 
-system('cp temp2_hostsfile temp_hostsfile')
+		line = filer_new.readline()
+
+	filer_new.close()
+
+	system('cp temp2_hostsfile temp_hostsfile')
+except FileNotFoundError:
+	pass
 
 print('Plik utworzony!')
 print('Szukanie zmian...')
