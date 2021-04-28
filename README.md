@@ -5,6 +5,9 @@
 This Python3 script checks whether there was an update of the StevenBlack's unified + gambling + porn hosts file.
 If there was, the user may agree to replace the older file from /etc/hosts with the newest one
 
+### Prerequisites
+* `$ chmod u+x checkhosts`
+
 To use different set, just copy the link from the StevenBlack's repo and assign it to the LINK in the source code.
 
 Premade binaries make use of the unified + gambling + porn hosts file.
