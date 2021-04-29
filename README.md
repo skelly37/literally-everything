@@ -28,23 +28,23 @@ Update everything on the PC with just one *update* command!
 # Things not to forget
 ## Configuring USB printer Brother MFC 7860DW on Artix Linux with runit
 ### Prerequisites
-`$ paru -S brother-mfc-7860dw brscan4
-$ sudo pacman -S cups-runit simple-scan`
+* `$ paru -S brother-mfc-7860dw brscan4`
+* `# pacman -S cups-runit simple-scan`
 
 The latter may be any other scanning software
 
-`$ sudo cp /etc/runit/sv/cupsd /run/runit/service/
-$ sudo sv up cupsd && sudo sv status cupsd`
+* `# cp /etc/runit/sv/cupsd /run/runit/service/`
+* `# sv up cupsd && sudo sv status cupsd`
 
 ### Setting up the printer
-`$ lpadmin -p BROTHER-MFC-7860DW -E -v [PORT-USB] -m MFC7860DW.ppd`
+* `# lpadmin -p BROTHER-MFC-7860DW -E -v [PORT-USB] -m MFC7860DW.ppd`
 
 example:
 
-`$ lpadmin -p BROTHER-MFC-7860DW -E -v "usb://Brother/MFC-7860DW?serial=E6343844N360681"-m MFC7860DW.ppd`
+* `# lpadmin -p BROTHER-MFC-7860DW -E -v "usb://Brother/MFC-7860DW?serial=E6343844N360681"-m MFC7860DW.ppd`
 
 ### Setting up the scanner
-`$ sudo brsaneconfig4 -a name=Brother_MFC-7860DW model=MFC-7860DW ip=192.000.000.192`
+* `# brsaneconfig4 -a name=Brother_MFC-7860DW model=MFC-7860DW ip=192.000.000.192`
 
 Only the IP modification is required. You have to set up a static IP for your printer. Either via your router or via the settings of the printer.
 
