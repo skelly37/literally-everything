@@ -29,6 +29,9 @@ Update everything on the PC with just one *update* command!
 ## Configuring USB printer Brother MFC 7860DW on Artix Linux with runit
 ### Prerequisites
 * `$ paru -S brother-mfc-7860dw brscan4`
+
+Replace *paru* with your preferred AUR helper prefix or simply build the AUR packages manually
+
 * `# pacman -S cups-runit simple-scan`
 
 The latter may be any other scanning software
