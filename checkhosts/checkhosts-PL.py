@@ -4,28 +4,20 @@
 #older file from /etc/hosts with the newest one
 
 
-from urllib.request import Request, urlopen
-from bs4 import BeautifulSoup
-from os import _exit, remove, system
+from urllib.request import urlretrieve as download
+from os import remove, system
 import subprocess
 
-HDR = {'User-Agent':'Mozilla/5.0'}
 LINK = 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts'
 
 #get raw text file from GitHub
-request = Request(LINK, headers=HDR)
 print('Pobieranie pliku...')
-plaintext = BeautifulSoup(urlopen(request), 'html.parser')
+download(LINK, 'temp_hostsfile')
 print('Pobieranie zakończone!')
-print('Tworzenie pliku tymczasowego...')
-
-#dump the results into a temp file
-filew = open('temp_hostsfile', 'w')
-filew.write(plaintext.get_text())
-filew.close()
 
 #checking whitelist and removing it from the temp file
 try:
+	print('Tworzenie pliku tymczasowego...')
 	whitelist_file = open('hosts_whitelist.txt', 'r')
 	whitelist = []
 	line = whitelist_file.readline()
@@ -52,10 +44,11 @@ try:
 	filer_new.close()
 
 	system('cp temp2_hostsfile temp_hostsfile')
+	print('Plik utworzony!')
 except FileNotFoundError:
 	pass
 
-print('Plik utworzony!')
+
 print('Szukanie zmian...')
 
 #initialize variables needed to compare the new file with the older one
@@ -126,7 +119,7 @@ elif are_different:
 	#if user does not want to update, remove the temp file and exit
 	if password.lower() == 'n':
 		remove('temp_hostsfile')
-		_exit(0)
+		exit()
 
 	#update the hosts file
 	update = subprocess.Popen(['sudo', 'cp', 'temp_hostsfile', '/etc/hosts'], stderr=subprocess.STDOUT)
@@ -139,5 +132,8 @@ elif are_different:
 
 #remove the temp file
 remove('temp_hostsfile')
-remove('temp2_hostsfile')
+try:
+	remove('temp2_hostsfile')
+except FileNotFoundError:
+	pass
 
