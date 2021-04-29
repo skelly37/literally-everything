@@ -37,7 +37,7 @@ Replace *paru* with your preferred AUR helper prefix or simply build the AUR pac
 The latter may be any other scanning software
 
 * `# cp /etc/runit/sv/cupsd /run/runit/service/`
-* `# sv up cupsd && sudo sv status cupsd`
+* `# sv up cupsd && sv status cupsd`
 
 ### Setting up the printer
 * `# lpadmin -p BROTHER-MFC-7860DW -E -v [PORT-USB] -m MFC7860DW.ppd`
