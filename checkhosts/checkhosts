@@ -1,0 +1,38 @@
+#!/bin/bash
+
+HOSTS_PATH='/etc/hosts'
+LINK='https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts'
+WHITELIST=('multipasko')
+
+echo 'checkhosts'
+changedir='cd'
+$changedir
+
+file='wget -q -O temp_hostsfile '$LINK
+echo 'Downloading the hosts file...'
+($file && echo Done!) || (echo 'wget is needed to download the file.' && exit)
+
+launch='checkhosts-py '$HOSTS_PATH' '${WHITELIST[*]}
+echo $launch
+$launch
+
+if [ $? == 0 ];
+then
+    update_hosts='sudo cp temp_hostsfile /etc/hosts'
+    $update_hosts
+fi
+
+del_temp='rm temp_hostsfile'
+del_temp2='rm temp2_hostsfile'
+for filename in $(ls)
+do
+    if [ $filename == 'temp2_hostsfile' ];
+    then
+    	$del_temp2
+    fi
+    if [ $filename == temp_hostsfile ];
+    then 
+    	$del_temp
+    fi
+done
+

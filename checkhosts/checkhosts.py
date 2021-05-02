@@ -1,32 +1,13 @@
-#This script checks whether there was an update of the
-#StevenBlack's unified adware+malware hosts file
-#If there was, the user may agree to replace the 
-#older file from /etc/hosts with the newest one
-
-
-from urllib.request import urlretrieve as download
-from os import remove, system
+from os import system
 import subprocess
+from sys import argv, exit as leave
 
-LINK = 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts'
+HOSTS_PATH = argv[1]
+whitelist=[]
 
-#get raw text file from GitHub
-print('Fetching data...')
-download(LINK, 'temp_hostsfile')
-print('Fetching completed!')
-
-
-#checking whitelist and removing it from the temp file
-try:
-	print('Creating a temporary file...')	
-	whitelist_file = open('hosts_whitelist.txt', 'r')
-	whitelist = []
-	line = whitelist_file.readline()
-	while line != '':
-		whitelist.append(line.strip())
-		line = whitelist_file.readline()
-	whitelist_file.close()
-
+if argv[2:] != []:
+	whitelist = argv[1:]
+	print('Applying whitelist...')
 
 	filer_new = open('temp_hostsfile', 'r')
 	line = filer_new.readline()
@@ -46,14 +27,12 @@ try:
 	filer_new.close()
 
 	system('cp temp2_hostsfile temp_hostsfile')
-	print('File created!')
-except FileNotFoundError:
-	pass
+	print('Whitelist applied!')
 
 print('Looking for any changes...')
 
 #initialize variables needed to compare the new file with the older one
-filer_old = open('/etc/hosts', 'r')
+filer_old = open(HOSTS_PATH, 'r')
 filer_new = open('temp_hostsfile', 'r')
 line_old = filer_old.readline()
 line_new = filer_new.readline()
@@ -107,6 +86,7 @@ while (line_new != '' or line_old != '') and not are_different:
 if not are_different:
 	#leave and remove the temp file
 	print('No changes found.')
+	leave(2)
 
 #ask the user whether they want to update the file if there is any update
 elif are_different:
@@ -115,21 +95,8 @@ elif are_different:
 
 	#if user does not want to update, remove the temp file and exit
 	if password.lower() == 'n':
-		remove('temp_hostsfile')
-		_exit(0)
-
-	#update the hosts file
-	update = subprocess.Popen(['sudo', 'cp', 'temp_hostsfile', '/etc/hosts'], stderr=subprocess.STDOUT)
-	stderr = update.communicate()[1]
-	if stderr == None:
-		print('\nUpdate successful!')
+		leave(2)
 	else:
-		print('\nAn error ocurred. Try again.')
+		leave(0)
 
 
-#remove the temp file
-remove('temp_hostsfile')
-try:
-	remove('temp2_hostsfile')
-except FileNotFoundError:
-	pass
