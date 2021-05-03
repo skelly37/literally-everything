@@ -6,6 +6,7 @@ This Python3 script checks whether there was an update of the StevenBlack's unif
 If there was, the user may agree to replace the older file from /etc/hosts with the newest one
 
 ### Prerequisites
+* **wget** 
 * `$ chmod a+x checkhosts && chmod a+x checkhosts-py && chmod a+x update`
 
 To use different set, just copy the link from the StevenBlack's repo and assign it to the LINK in the bash script `checkhosts`.
