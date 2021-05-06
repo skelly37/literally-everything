@@ -26,6 +26,29 @@ Whitelist support
 
 Update everything on the PC with just one *update* command!
 
+# Functions
+## [Python3](https://github.com/skelly37/literally-everything/blob/main/functions/python3/)
+### [Displaying a progressbar in terminal](https://github.com/skelly37/literally-everything/blob/main/functions/python3/my_progressbar.py)
+
+Display script's progress in a pacman-like prograssbar with a loop. Usage documented in the source code.
+
+Example:
+
+```
+from time import sleep
+from my_progressbar import show_progressbar
+	      
+        max = 153
+        show_progressbar(0, max)
+        
+        for count in range(max):
+            sleep(0.05) 
+            #some code
+            show_progressbar(count+1, max)
+  ```
+
+
+
 # Things not to forget
 ## Configuring USB printer Brother MFC 7860DW on Artix Linux with runit
 ### Prerequisites
