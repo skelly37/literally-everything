@@ -1,6 +1,6 @@
 # My Linux scripts & configs
 
-## Update checker for the StevenBlack's unified + gambling + porn hosts file ([bash](https://github.com/skelly37/my-linux/blob/main/checkhosts/checkhosts) + Python3 [en](https://github.com/skelly37/my-linux/blob/main/checkhosts/checkhosts.py)/[pl](https://github.com/skelly37/my-linux/blob/main/checkhosts/checkhosts-pl.py))
+## Update checker for the StevenBlack's unified + gambling + porn hosts file ([bash](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts) + Python3 [en](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts.py)/[pl](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts-pl.py))
 
 This Python3 script checks whether there was an update of the StevenBlack's unified + gambling + porn hosts file.
 If there was, the user may agree to replace the older file from /etc/hosts with the newest one
