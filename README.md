@@ -35,7 +35,9 @@ Something breaks when using NapiProjekt on Linux with Winetricks and you get som
 
 ### Usage
 * `$ python3 fix-subtitles.py my_subtitles.srt`
+
 Then you have to manually interrupt the program (it's gonna be fixed some day, I guess) and:
+
 * `$ mv my_subtitles.srtfixed my_subtitles.srt`
 
 
