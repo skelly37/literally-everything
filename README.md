@@ -29,6 +29,16 @@ Whitelist/Blacklist support
 
 Update everything on the PC with just one *update* command!
 
+## [Fix polish subtitles from NapiProjekt (Python)](https://github.com/skelly37/literally-everything/blob/main/fix-subtitles.py)
+
+Something breaks when using NapiProjekt on Linux with Winetricks and you get some weird characters like œ in your subtitles. It simply does its job.
+
+### Usage
+* `$ python3 fix-subtitles.py my_subtitles.srt`
+Then you have to manually interrupt the program (it's gonna be fixed some day, I guess) and:
+* `$ mv my_subtitles.srtfixed my_subtitles.srt`
+
+
 # Functions
 ## [Python3](https://github.com/skelly37/literally-everything/blob/main/functions/python3/)
 ### [Displaying a progressbar in terminal](https://github.com/skelly37/literally-everything/blob/main/functions/python3/my_progressbar.py)
