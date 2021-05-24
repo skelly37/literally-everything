@@ -1,24 +1,27 @@
 # My Linux scripts & configs
 
-## Update checker for the StevenBlack's unified + gambling + porn hosts file ([bash](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts) + Python3 [en](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts.py)/[pl](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts-pl.py))
+## Update checker for the StevenBlack's unified + gambling + porn hosts file ([bash](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts) + [Python](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts.py))
 
 This Python3 script checks whether there was an update of the StevenBlack's unified + gambling + porn hosts file.
 If there was, the user may agree to replace the older file from /etc/hosts with the newest one
 
 ### Prerequisites
 * **wget** 
-* `$ chmod a+x checkhosts && chmod a+x checkhosts-py && chmod a+x update`
+* `$ chmod a+x checkhosts checkhosts-py`
 
 To use different set, just copy the link from the StevenBlack's repo and assign it to the LINK in the bash script `checkhosts`.
 
 Premade Python binary was compiled for Artix Linux but the source code does not depent on the OS.
 
-Whitelist support
+Whitelist/Blacklist support
 
 ### How to use whitelist?
 * Paste links/domains into WHITELIST in `checkhosts` script. Correct formatting: WHITELIST = ("domain1" "domain2" "domain3") *you can use ' instead of ", though*
 * Enter either full lines from /etc/hosts like '0.0.0.0 www-google-analytics.l.google.com' or just keywords like 'google' to whitelist all of the Google domains.
 * Paste the links the same way there are in the /etc/hosts — no tabulating, no spacing, no commas etc.
+
+### How tu use blacklist?
+* Same thing as with the whitelist
 
 **[StevenBlack's hosts repo](https://github.com/StevenBlack/hosts)**
 
