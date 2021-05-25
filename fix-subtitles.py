@@ -3,10 +3,13 @@ from sys import argv
 import subprocess as s
 
 def main():
+	#know problematic characters and the correct ones
 	chars = {'³': 'ł', '¹': 'ą', 'ê': 'ę', 'Ÿ': 'ź', '¿': 'ż', 'æ': 'ć', 'ñ': 'ń', 'œ': 'ś', '¯': 'Ż', 'Œ': 'Ś'}
 
+	#initializing a flag whether user wants to overwrite the old file or not
 	overwrite = False
 	
+	#check whether the -o or --overwrite flag was entered
 	try:	
 		filename = argv[2]
 		if argv[1].lower() == '-o' or argv[1].lower() == '--overwrite':
@@ -14,17 +17,20 @@ def main():
 	except IndexError:
 		filename = argv[1]
 
+	#get the number of lines for the progressbar
 	lines = calc_num_of_lines(filename)
 
+	#open the files and replace the characters
 	filer = open(filename, 'r')
 	filew = open(filename+'fixed', 'w')
 
 	line = filer.readline()
-
 	count = 0
 
 	while line != '':
+		#display progress
 		show_progressbar(count+1, lines)
+		
 		for char in chars:
 			line = line.replace(char, chars[char])
 		filew.write(line)	
@@ -35,9 +41,11 @@ def main():
 	filew.close()
 	filer.close()
 	
+	#overwrite the file if user wants to
 	if overwrite:
 		system('mv ' + filename+'fixed ' + filename)
 
+#get the output of $wc -l filename and parse it to get only the number of lines that is returned
 def calc_num_of_lines(filename):
 	wc = s.Popen(['wc', '-l',  filename], stdout=s.PIPE, stderr=s.PIPE)
 
