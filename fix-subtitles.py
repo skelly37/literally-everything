@@ -5,7 +5,14 @@ import subprocess as s
 def main():
 	chars = {'³': 'ł', '¹': 'ą', 'ê': 'ę', 'Ÿ': 'ź', '¿': 'ż', 'æ': 'ć', 'ñ': 'ń', 'œ': 'ś', '¯': 'Ż', 'Œ': 'Ś'}
 
-	filename = argv[1]
+	overwrite = False
+	
+	try:	
+		filename = argv[2]
+		if argv[1].lower() == '-o' or argv[1].lower() == '--overwrite':
+			overwrite = True
+	except IndexError:
+		filename = argv[1]
 
 	lines = calc_num_of_lines(filename)
 
@@ -27,6 +34,9 @@ def main():
 
 	filew.close()
 	filer.close()
+	
+	if overwrite:
+		system('mv ' + filename+'fixed ' + filename)
 
 def calc_num_of_lines(filename):
 	wc = s.Popen(['wc', '-l',  filename], stdout=s.PIPE, stderr=s.PIPE)
