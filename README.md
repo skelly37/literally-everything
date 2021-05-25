@@ -34,11 +34,13 @@ Update everything on the PC with just one *update* command!
 Something breaks when using NapiProjekt on Linux with Winetricks and you get some weird characters like œ in your subtitles. It simply does its job.
 
 ### Usage
+Without replacing the old file:
+
 * `$ python3 fix-subtitles.py my_subtitles.srt`
 
-Then you have to manually interrupt the program (it's gonna be fixed some day, I guess) and:
+To replace the old file with the fixed one simply add the _-o_ or _--overwrite_ flag before the filename, e.g.:
 
-* `$ mv my_subtitles.srtfixed my_subtitles.srt`
+* `$ python3 fix-subtitles.py --overwrite my_subtitles.srt`
 
 
 # Functions
