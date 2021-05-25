@@ -10,7 +10,8 @@ filew = open(filename+'fixed', 'r')
 
 line = filer.readline()
 
-while line.strip != '':
+while line != '':
+	line = line.strip()
 	for char in chars:
 		line = line.replace(char, chars[char])
 	filew.write(line)	
