@@ -124,4 +124,6 @@ def compare_files(old_file_path=HOSTS_PATH, new_file_path='temp_hostsfile'):
 			line_old = filer_old.readline()
 			line_new = filer_new.readline()
 
+	return are_different
+
 main()
