@@ -25,9 +25,6 @@ Whitelist/Blacklist support
 
 **[StevenBlack's hosts repo](https://github.com/StevenBlack/hosts)**
 
-## [Update pacman packages, AUR software and summon checkhosts (Bash)](https://github.com/skelly37/literally-everything/blob/main/update)
-
-Update everything on the PC with just one *update* command!
 
 ## [Fix polish subtitles from NapiProjekt (Python)](https://github.com/skelly37/literally-everything/blob/main/fix-subtitles.py)
 
