@@ -40,9 +40,9 @@ To replace the old file with the fixed one simply add the _-o_ or _--overwrite_ 
 * `$ python3 fix-subtitles.py --overwrite my_subtitles.srt`
 
 
-# Functions
-## [Python3](https://github.com/skelly37/literally-everything/blob/main/functions/python3/)
-### [Displaying a progressbar in terminal](https://github.com/skelly37/literally-everything/blob/main/functions/python3/my_progressbar.py)
+# Nice things
+## [Python3](https://github.com/skelly37/literally-everything/blob/main/nice-things/python3)
+### [Displaying a progressbar in terminal](https://github.com/skelly37/literally-everything/blob/main/nice-things/python3/functions/my_progressbar.py)
 
 Display script's progress in a pacman-like prograssbar with a loop. Usage documented in the source code.
 
@@ -61,7 +61,8 @@ from my_progressbar import show_progressbar
             show_progressbar(count+1, max)
   ```
 
-
+## [C++](https://github.com/skelly37/literally-everything/blob/main/nice-things/cpp)
+### [2048 -- CLI edition](https://github.com/skelly37/literally-everything/blob/main/nice-things/cpp/games/2048.cpp)
 
 # Things not to forget
 ## Configuring USB printer Brother MFC 7860DW on Artix Linux with runit
