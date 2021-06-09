@@ -3,17 +3,17 @@
 #include<string>
 #include<iomanip>
 #include<fstream>
-#include<thread>
 
 #ifdef _WIN32
 	#include<conio.h>
+	#include <windows.h>
 #else
 	#include<termios.h>
 	#include<stdio.h>
+	#include <unistd.h>
 #endif
 
 using namespace std;
-using namespace std::this_thread;
 
 
 /* Klasa gry 2048 */
@@ -29,13 +29,13 @@ class Game2048
 									  {0,0,0,0}},
 
 		// plansza do sprawdzania, czy obecna tura byla ruchem oraz umozliwiajaca cofanie jednego ruchu
-		previous_board[4][4];							        				
+		previous_board[4][4];
 
 		// akumulatory ruchow oraz punktow
 		unsigned int moves=0, points=0,
 
 		// zmienna pomocnicza do wykonywania cofania
-		previous_points, 
+		previous_points,
 
 		// najlepszy wynik
 		highscore;
@@ -130,8 +130,8 @@ class Game2048
 						}
 					}
 					if(not moved)
-						return;	
-				}			
+						return;
+				}
 			}
 
 			void clear_zeros_down(unsigned short column)
@@ -150,7 +150,7 @@ class Game2048
 						}
 					}
 					if(not moved)
-						return;	
+						return;
 				}
 			}
 
@@ -170,7 +170,7 @@ class Game2048
 						}
 					}
 					if(not moved)
-						return;	
+						return;
 				}
 			}
 
@@ -190,7 +190,7 @@ class Game2048
 						}
 					}
 					if(not moved)
-						return;	
+						return;
 				}
 			}
 				/* Koniec metod przesuwajacych zera mozliwie najdalej od pozadanej krawedzi */
@@ -205,7 +205,7 @@ class Game2048
 					for(unsigned short column=0; column<4; column++)
 					{
 						clear_zeros_up(column);
-					
+
 
 						if(board[0][column] == board[1][column])
 						{
@@ -230,11 +230,11 @@ class Game2048
 					// Dla kazdej kolumny:
 					//   1) Przerzuc zera do gory
 					//   2) Dodaj sasiednie liczby (os pionowa)
-					//   3) Przerzuc zera do gory 
+					//   3) Przerzuc zera do gory
 					for(unsigned short column=0; column<4; column++)
 					{
 						clear_zeros_down(column);
-					
+
 
 						if(board[2][column] == board[3][column])
 						{
@@ -249,7 +249,7 @@ class Game2048
 
 						else if(board[0][column] == board[1][column])
 								add_down(0, column);
-						
+
 						clear_zeros_down(column);
 					}
 				}
@@ -259,7 +259,7 @@ class Game2048
 					// Dla kazdego wiersza:
 					//   1) Przerzuc zera prawo
 					//   2) Dodaj sasiednie liczby (os pozioma)
-					//   3) Przerzuc zera na prawo 
+					//   3) Przerzuc zera na prawo
 					for(unsigned short row=0; row<4; row++)
 					{
 						clear_zeros_left(row);
@@ -277,7 +277,7 @@ class Game2048
 
 						else if(board[row][2] == board[row][3])
 							add_left(row, 2);
-					
+
 						clear_zeros_left(row);
 					}
 				}
@@ -287,7 +287,7 @@ class Game2048
 					// Dla kazdego wiersza:
 					//   1) Przerzuc zera lewo
 					//   2) Dodaj sasiednie liczby (os pozioma)
-					//   3) Przerzuc zera na lewo 
+					//   3) Przerzuc zera na lewo
 					for(unsigned short row=0; row<4; row++)
 					{
 						clear_zeros_right(row);
@@ -305,19 +305,19 @@ class Game2048
 
 						else if(board[row][0] == board[row][1])
 							add_right(row, 0);
-					
+
 						clear_zeros_right(row);
 					}
 				}
 					/* Koniec metod obslugujacych ruch w konkretnym kierunku */
 				/* Koniec metod pomocnicych sluzacych do wykonywania ruchow */
 
-		// Metoda zwracajaca wskaznik do dynamicznie alokowanej listy wspolrzednych zawierajacych 0 -- miejsca, gdzie mozna postawic nowa liczbe		
+		// Metoda zwracajaca wskaznik do dynamicznie alokowanej listy wspolrzednych zawierajacych 0 -- miejsca, gdzie mozna postawic nowa liczbe
 		unsigned short** get_empty_indexes()
 		{
-			// zainicjowanie tablicy 
+			// zainicjowanie tablicy
 			unsigned short** empty_indexes = new unsigned short*[16];
-			
+
 			// zamiana tablicy jednowymiarowej w dwuwymiarowa
 			for(unsigned short index=0; index<16; index++)
 				empty_indexes[index] = new unsigned short[2];
@@ -356,7 +356,7 @@ class Game2048
 				return;
 
 			// zmienna przechowujaca wartosc liczby wylosowanej do wpisania
-			unsigned short two_or_four; 
+			unsigned short two_or_four;
 
 			// wylosowanie 4 lub 2 z szansa 1:8
 			if(get_random_number(1, 9) == 9)
@@ -416,7 +416,7 @@ class Game2048
 			for(unsigned short row=0; row<4; row++)
 			{
 				for (unsigned short column=0; column<4; column++)
-				{	
+				{
 					if(board[row][column] != previous_board[row][column])
 					{
 						board[row][column] = previous_board[row][column];
@@ -457,7 +457,7 @@ class Game2048
 				moves++;
 				add_2_or_4(get_empty_indexes());
 				update_highscore();
-			}			
+			}
 		}
 
 		/* Koniec logiki tablicy */
@@ -465,7 +465,7 @@ class Game2048
 		/* Logika pozostalych elementow gry */
 
 		// sprawdzenie czy mozna wykonac jakis ruch (w tablicy wystepuje 0 lub 2 takie same liczby granicza ze soba)
-		bool may_be_continued()										
+		bool may_be_continued()
 		{
 			for(unsigned short row=0; row<4; row++)
 			{
@@ -498,13 +498,13 @@ class Game2048
 		}
 
 		/* Koniec pozostalej logiki */
-		
+
 
 		/* Kosmetyka */
 
 		// prywatny 'akcesor', zwracajacy plansze gry jako ladnie sformatowany string i przekazuje do funkcji print_ui()
 		// robi ladne granice i wyznacza pola o 5 znakach szerokosci
-		string get_board()												
+		string get_board()
 		{
 			string theboard = "===========================\n";
 			for(unsigned short row=0; row<4; row++)
@@ -544,13 +544,13 @@ class Game2048
 		}
 
 		// wyswietlanie UI gracza -- ruchy, tabela i punkty
-		void print_ui()												
+		void print_ui()
 		{
 			print_moves();
 			cout << get_board();
 			print_points();
 			print_highscore();
-		}																					
+		}
 
 		// wyswietlanie ruchow
 		void print_moves()
@@ -602,7 +602,7 @@ class Game2048
 
 		static void menu_exit_selected()
 		{
-			print_menu_header();	
+			print_menu_header();
 			cout << "   NOWA GRA " << endl;
 			cout << "   STEROWANIE" << endl;
 			cout << ">>>  WYJSCIE <<<" << endl;
@@ -698,14 +698,14 @@ class Game2048
 
 		// metoda komunikujaca zakonczenie gry i wyswietlajaca jej wyniki
 		void game_over(const char CLEAR[])
-		{	
+		{
 			clear_screen(CLEAR);
 			cout << get_board() << endl;
-			cout << endl << "----------------------------" << endl; 
+			cout << endl << "----------------------------" << endl;
 			cout << "Koniec gry.";
 			if(highscore_beaten)
 				cout << setw(16) << "Nowy rekord!";
-			cout << endl; 
+			cout << endl;
 			print_points();
 			print_moves();
 			cout << "----------------------------" << endl;
@@ -724,7 +724,11 @@ class Game2048
 			{
 				Game2048::clear_screen(CLEAR);
 				menu_default();
-				sleep_for(0.45s);
+				#ifdef _WIN32
+                    Sleep(0.45);
+                #else
+                    usleep(0.45*1000);
+                #endif
 				Game2048::clear_screen(CLEAR);
 
 				switch(position)
@@ -805,7 +809,7 @@ class Game2048
 		}
 	#endif
 		/* Koniec statycznych metod pomocniczych */
-/* Koniec klasy */		
+/* Koniec klasy */
 };
 
 int main()
@@ -831,8 +835,8 @@ int main()
 		case 2:
 			Game2048::print_controls();
 
-		case 1:			
-		{		
+		case 1:
+		{
 			// Petla tworzaca nowe gry po przegraniu/przerwaniu poprzednich, dopoki gracz jej nie przerwie
 			while(choice != 'Q')
 			{
