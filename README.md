@@ -62,6 +62,9 @@ from my_progressbar import show_progressbar
   ```
 
 ## [C++](https://github.com/skelly37/literally-everything/blob/main/nice-things/cpp)
+### [Crossplatform getch()](https://github.com/skelly37/literally-everything/blob/main/nice-things/cpp/functions/crossplatform-getch.cpp)
+
+Since getch() works only on Windows (Windows.h), there's some crossplatform solution that returns the uppercase key from buffer
 
 # Things not to forget
 ## Configuring USB printer Brother MFC 7860DW on Artix Linux with runit
