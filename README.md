@@ -62,7 +62,6 @@ from my_progressbar import show_progressbar
   ```
 
 ## [C++](https://github.com/skelly37/literally-everything/blob/main/nice-things/cpp)
-### [2048 -- CLI edition](https://github.com/skelly37/literally-everything/blob/main/nice-things/cpp/games/2048.cpp)
 
 # Things not to forget
 ## Configuring USB printer Brother MFC 7860DW on Artix Linux with runit
