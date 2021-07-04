@@ -1,9 +1,14 @@
 #!/bin/bash
 
 HOSTS_PATH='/etc/hosts'
+FORCE=''
+if [ $1 == '--force' ];
+then
+    FORCE='--force'
+fi
 LINK='https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts'
 WHITELIST=('multipasko')
-#BLACKLIST=('')
+BLACKLIST=('tiktok.com')
 
 echo 'checkhosts'
 changedir='cd'
@@ -13,7 +18,7 @@ file='wget -q -O temp_hostsfile '$LINK
 echo 'Downloading the hosts file...'
 ($file && echo Done!) || (echo 'wget is needed to download the file.' && exit)
 
-launch='checkhosts-py '$HOSTS_PATH' --whitelist '${WHITELIST[*]} #' --blacklist '${BLACKLIST[*]}
+launch='checkhosts-py '$HOSTS_PATH' '$FORCE' --whitelist '${WHITELIST[*]}' --blacklist '${BLACKLIST[*]}
 $launch
 
 if [ $? == 0 ];
