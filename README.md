@@ -17,11 +17,14 @@ Whitelist/Blacklist support
 
 ### How to use whitelist?
 * Paste links/domains into WHITELIST in `checkhosts` script. Correct formatting: WHITELIST = ("domain1" "domain2" "domain3") *you can use ' instead of ", though*
-* Enter either full lines from /etc/hosts like '0.0.0.0 www-google-analytics.l.google.com' or just keywords like 'google' to whitelist all of the Google domains.
+* Enter either full lines from /etc/hosts like '0.0.0.0 www-google-analytics.l.google.com' to whitelist specific domain or just keywords like 'google' to whitelist all of the Google domains (don't do it).
 * Paste the links the same way there are in the /etc/hosts — no tabulating, no spacing, no commas etc.
 
-### How tu use blacklist?
+### How to use blacklist?
 * Same thing as with the whitelist
+
+### How to force the script to update the file even though there was no update at all?
+* Use `--force` flag, i.e. `checkhosts --force`
 
 **[StevenBlack's hosts repo](https://github.com/StevenBlack/hosts)**
 
