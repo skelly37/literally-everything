@@ -43,6 +43,43 @@ To replace the old file with the fixed one simply add the _-o_ or _--overwrite_ 
 * `$ python3 fix-subtitles.py --overwrite my_subtitles.srt`
 
 
+## Normie-friendly and useful aliases [(raw text to copy-paste)](https://raw.githubusercontent.com/skelly37/literally-everything/main/raw-aliases)
+
+Simply paste it into your shell config, e.g. ~/.bashrc
+
+`alias update='checkhosts; paru -Syyuu; clean'`
+
+`alias chax='chmod a+x'`
+
+`alias l='ls --group-directories-first'`
+
+`alias lq='ls --quote-name --group-directories-first'`
+
+`alias la='ls --quote-name --group-directories-first -a'`
+
+`alias ins='paru -S --skipreview'`
+
+`alias rem='paru -Rns'`
+
+`alias comp='makepkg -si'`
+
+`alias pkgs='paru -Q'`
+
+`alias clean='paru -Rns $(paru -Qdtq)'`
+
+`alias wgetq='wget -q'`
+
+`alias pyins='pyinstaller --onefile'`
+
+`alias exrar='unrar x'`
+
+`alias extar='tar -xvf'`
+
+`alias remdir='rm -r'`
+
+`alias remprtscr='cd ~/Pictures && rm Screenshot*; cd'`
+
+
 # Nice things
 ## [Python3](https://github.com/skelly37/literally-everything/blob/main/nice-things/python3)
 ### [Displaying a progressbar in terminal](https://github.com/skelly37/literally-everything/blob/main/nice-things/python3/functions/my_progressbar.py)
