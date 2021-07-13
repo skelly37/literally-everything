@@ -83,6 +83,19 @@ Keep in mind that ones containing 'paru' require paru and an AUR-friendly distro
 
 `alias remprtscr='cd ~/Pictures && rm Screenshot*; cd'`
 
+`alias tojpg='c2jpg $(l)'`
+
+### Dependencies
+* Package manager:
+	* pacman 
+* 'Classic' tools:
+	* `wget`, `unrar`, `tar`
+* Other content:
+	* https://github.com/Morganamilo/paru
+	* https://github.com/skelly37/literally-everything#update-checker-for-the-stevenblacks-unified--gambling--porn-hosts-file-bash--python 
+	* https://github.com/pyinstaller/pyinstaller
+	* https://github.com/eon01/c2jpg   	
+
 
 # Nice things
 ## [Python3](https://github.com/skelly37/literally-everything/blob/main/nice-things/python3)
