@@ -47,6 +47,8 @@ To replace the old file with the fixed one simply add the _-o_ or _--overwrite_ 
 
 Simply paste it into your shell config, e.g. ~/.bashrc
 
+Keep in mind that ones containing 'paru' require paru and an AUR-friendly distro. Feel free to replace it with your own package manager
+
 `alias update='checkhosts; paru -Syyuu; clean'`
 
 `alias chax='chmod a+x'`
@@ -64,6 +66,8 @@ Simply paste it into your shell config, e.g. ~/.bashrc
 `alias comp='makepkg -si'`
 
 `alias pkgs='paru -Q'`
+
+`alias aurpkgs='paru -Qm'`
 
 `alias clean='paru -Rns $(paru -Qdtq)'`
 
