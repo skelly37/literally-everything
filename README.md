@@ -49,9 +49,9 @@ Simply paste it into your shell config, e.g. ~/.bashrc
 
 Keep in mind that ones containing 'paru' require paru and an AUR-friendly distro. Feel free to replace it with your own package manager
 
-`alias update='checkhosts; paru -Syyuu; clean'`
+`alias update='checkhosts; sudo pacman -Syyuu; paru -Sua --skipreview; clean'`
 
-`alias chax='chmod a+x'`
+`alias chx='chmod a+x'`
 
 `alias l='ls --group-directories-first'`
 
@@ -69,7 +69,7 @@ Keep in mind that ones containing 'paru' require paru and an AUR-friendly distro
 
 `alias aurpkgs='paru -Qm'`
 
-`alias clean='paru -Rns $(paru -Qdtq)'`
+`alias clean='paru -Rns $(paru -Qdtq); remprtscr; remtemp'`
 
 `alias wgetq='wget -q'`
 
@@ -79,11 +79,14 @@ Keep in mind that ones containing 'paru' require paru and an AUR-friendly distro
 
 `alias extar='tar -xvf'`
 
-`alias remdir='rm -r'`
+`alias remdir='sudo rm -r'`
 
-`alias remprtscr='cd ~/Pictures && rm Screenshot*; cd'`
+`alias remprtscr='rm /data/screenshots/Screenshot*'`
 
-`alias tojpg='c2jpg $(l)'`
+`alias remtemp='remdir /data/temp && mkdir /data/temp && rm ~/temp && ln -s /data/temp ~/temp'`
+
+`alias ..='cd ..'`
+
 
 ### Dependencies
 * Package manager:
