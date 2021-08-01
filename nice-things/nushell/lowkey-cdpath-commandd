@@ -1,0 +1,10 @@
+#COPY IT INTO YOUR ~/.config/nu/config.toml
+#
+#NOTE THAT MY C COMMAND *REQUIRES* AN ARGUMENT — TO USE $cd FUNCTIONALITY TYPE $cd, OTHERWISE USE $c [folder-name]
+#
+#I WISH THERE WAS EASIER WAY BTW
+
+startup = [
+	"let cdpath = [. /data /data/it /data/games]", 
+	"def c [dir] { let wd = (pwd); for element in $cdpath {if (pwd) == $wd {cd $element; for directory in (ls -d */ | get name) {if $dir == $directory {cd $dir} {}}; if (pwd) == $element {cd $wd} {}} {}}; if (pwd) == $wd {cd $wd; echo \"No such path!\"} {}}",
+]
