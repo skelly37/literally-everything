@@ -42,63 +42,7 @@ To replace the old file with the fixed one simply add the _-o_ or _--overwrite_ 
 
 * `$ python3 fix-subtitles.py --overwrite my_subtitles.srt`
 
-
-## Normie-friendly and useful aliases [(raw text to copy-paste)](https://raw.githubusercontent.com/skelly37/literally-everything/main/raw-aliases)
-
-Simply paste it into your shell config, e.g. ~/.bashrc
-
-Keep in mind that ones containing 'paru' require paru and an AUR-friendly distro. Feel free to replace it with your own package manager
-
-`alias update='checkhosts; sudo pacman -Syyuu; paru -Sua --skipreview; clean'`
-
-`alias chx='chmod a+x'`
-
-`alias l='ls --group-directories-first'`
-
-`alias lq='ls --quote-name --group-directories-first'`
-
-`alias la='ls --quote-name --group-directories-first -a'`
-
-`alias ins='paru -S --skipreview'`
-
-`alias rem='paru -Rns'`
-
-`alias comp='makepkg -si'`
-
-`alias pkgs='paru -Q'`
-
-`alias aurpkgs='paru -Qm'`
-
-`alias clean='paru -Rns $(paru -Qdtq); remprtscr; remtemp'`
-
-`alias wgetq='wget -q'`
-
-`alias pyins='pyinstaller --onefile'`
-
-`alias exrar='unrar x'`
-
-`alias extar='tar -xvf'`
-
-`alias remdir='sudo rm -r'`
-
-`alias remprtscr='rm /data/screenshots/Screenshot*'`
-
-`alias remtemp='remdir /data/temp && mkdir /data/temp && rm ~/temp && ln -s /data/temp ~/temp'`
-
-`alias ..='cd ..'`
-
-
-### Dependencies
-* Package manager:
-	* pacman 
-* 'Classic' tools:
-	* `wget`, `unrar`, `tar`
-* Other content:
-	* https://github.com/Morganamilo/paru
-	* https://github.com/skelly37/literally-everything#update-checker-for-the-stevenblacks-unified--gambling--porn-hosts-file-bash--python 
-	* https://github.com/pyinstaller/pyinstaller
-	* https://github.com/eon01/c2jpg   	
-
+**Actually just use [this one](https://github.com/emericg/OpenSubtitlesDownload)**
 
 # Nice things
 ## [Python3](https://github.com/skelly37/literally-everything/blob/main/nice-things/python3)
@@ -124,4 +68,4 @@ from my_progressbar import show_progressbar
 ## [C++](https://github.com/skelly37/literally-everything/blob/main/nice-things/cpp)
 ### [Crossplatform getch()](https://github.com/skelly37/literally-everything/blob/main/nice-things/cpp/functions/crossplatform-getch.cpp)
 
-Since getch() works only on Windows (Windows.h), there's some crossplatform solution that returns the uppercase key from buffer
+Here's some crossplatform solution that returns the uppercase key from buffer
