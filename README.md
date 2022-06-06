@@ -1,5 +1,8 @@
-# My Linux scripts & configs
+# My random things that has to be saved 
+but are not significant enough to make a separate repo for them
 
+## **D E P R E C A T E D**
+[use this](https://github.com/skelly37/nu_scripts/blob/checkhosts/helpers/checkhosts.nu)
 ## Update checker for the StevenBlack's unified + gambling + porn hosts file ([bash](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts) + [Python](https://github.com/skelly37/literally-everything/blob/main/checkhosts/checkhosts.py))
 
 This Python3 script checks whether there was an update of the StevenBlack's unified + gambling + porn hosts file.
@@ -28,21 +31,9 @@ Whitelist/Blacklist support
 
 **[StevenBlack's hosts repo](https://github.com/StevenBlack/hosts)**
 
+## **D E P R E C A T E D**
+[use this](https://github.com/skelly37/nu_scripts/blob/checkhosts/helpers/checkhosts.nu)
 
-## [Fix polish subtitles from NapiProjekt (Python)](https://github.com/skelly37/literally-everything/blob/main/fix-subtitles.py)
-
-Something breaks when using NapiProjekt on Linux with Winetricks and you get some weird characters like œ in your subtitles. It simply does its job.
-
-### Usage
-Without replacing the old file:
-
-* `$ python3 fix-subtitles.py my_subtitles.srt`
-
-To replace the old file with the fixed one simply add the _-o_ or _--overwrite_ flag before the filename, e.g.:
-
-* `$ python3 fix-subtitles.py --overwrite my_subtitles.srt`
-
-**Actually just use [this one](https://github.com/emericg/OpenSubtitlesDownload)**
 
 # Nice things
 ## [Python3](https://github.com/skelly37/literally-everything/blob/main/nice-things/python3)
